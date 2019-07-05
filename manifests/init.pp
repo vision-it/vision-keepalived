@@ -3,6 +3,7 @@
 #
 # Parameters
 # ----------
+#  Example $vrt_ip_address = 192.168.0.123\24
 #
 # Examples
 # --------
