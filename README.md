@@ -1,6 +1,6 @@
 # vision-keepalived
 
-[![Build Status](https://travis-ci.org/vision-it/vision-keepalived.svg?branch=development)](https://travis-ci.org/vision-it/vision-keepalived)
+[![Build Status](https://travis-ci.org/vision-it/vision-keepalived.svg?branch=production)](https://travis-ci.org/vision-it/vision-keepalived)
 
 ## Parameter
 
