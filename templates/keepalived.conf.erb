@@ -1,4 +1,5 @@
 # This file is managed by Puppet
+# Uses the vrrp protocol (port 112)
 vrrp_instance VI_1 {
     state MASTER
     interface <%= @interface %>
