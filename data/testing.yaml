@@ -1,5 +1,5 @@
 ---
 vision_keepalived::vrt_ip_address: '192.168.0.33/24'
 vision_keepalived::interface: 'eth1'
-vision_keepalived::auth_pass: 'foobar'
+vision_keepalived::auth_pass: 'foopass'
 vision_keepalived::is_active_command: '/usr/bin/pidof foobar'

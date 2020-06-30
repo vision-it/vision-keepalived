@@ -24,7 +24,7 @@ describe 'vision_keepalived' do
       its(:content) { is_expected.to match 'enable_script_security' }
       its(:content) { is_expected.to match 'vrrp_script chk_active' }
       its(:content) { is_expected.to match 'track_script' }
-      its(:content) { is_expected.to match 'foobar' }
+      its(:content) { is_expected.to match 'foopass' }
     end
     describe file('/etc/keepalived/is_active.sh') do
       it { is_expected.to exist }

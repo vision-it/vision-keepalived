@@ -14,7 +14,7 @@
 
 class vision_keepalived (
 
-  String $auth_pass,
+  Sensitive[String] $auth_pass,
   String $vrt_ip_address,
   String $interface,
   String $is_active_command,
