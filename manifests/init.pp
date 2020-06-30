@@ -17,6 +17,7 @@ class vision_keepalived (
   String $auth_pass,
   String $vrt_ip_address,
   String $interface,
+  String $is_active_command,
   String $package = 'keepalived',
   String $service = 'keepalived',
 
@@ -26,10 +27,27 @@ class vision_keepalived (
     ensure  => present,
   }
 
+  user { 'keepalived_script':
+    ensure     => present,
+    managehome => false,
+    shell      => '/bin/false',
+    require    => Package[$package],
+  }
+
+  file { '/etc/keepalived/is_active.sh':
+    ensure  => present,
+    mode    => '0755',
+    owner   => 'keepalived_script',
+    group   => 'keepalived_script',
+    content => template('vision_keepalived/is_active.sh.erb'),
+    notify  => Service[$service],
+    require => User['keepalived_script'],
+  }
+
   file { '/etc/keepalived/keepalived.conf':
     ensure  => present,
-    owner   => root,
-    group   => root,
+    owner   => 'root',
+    group   => 'root',
     content => template('vision_keepalived/keepalived.conf.erb'),
     notify  => Service[$service],
     require => Package[$package],

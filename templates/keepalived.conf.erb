@@ -1,5 +1,15 @@
 # This file is managed by Puppet
 # Uses the vrrp protocol (port 112)
+global_defs {
+    script_user keepalived_script keepalived_script
+    enable_script_security
+}
+vrrp_script chk_active {
+    script "/etc/keepalived/is_active.sh"
+    interval 1
+    fall 1
+    rise 2
+}
 vrrp_instance VI_1 {
     state MASTER
     interface <%= @interface %>
@@ -12,5 +22,8 @@ vrrp_instance VI_1 {
     }
     virtual_ipaddress {
          <%= @vrt_ip_address %> dev <%= @interface %>
+    }
+    track_script {
+         chk_active
     }
 }
