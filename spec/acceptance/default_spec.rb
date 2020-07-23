@@ -28,6 +28,7 @@ describe 'vision_keepalived' do
     end
     describe file('/etc/keepalived/is_active.sh') do
       it { is_expected.to exist }
+      it { is_expected.to be_mode 755 }
       its(:content) { is_expected.to match 'foobar' }
     end
   end
